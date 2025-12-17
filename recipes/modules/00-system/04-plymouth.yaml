@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Add plymouth configuration
+modules:
+  - type: dnf
+    install:
+      packages:
+        - plymouth
+        - plymouth-plugin-label
+        - plymouth-plugin-script
+        - plymouth-plugin-two-step
+        - plymouth-plugin-fade-throbber
+        - plymouth-theme-spinfinity
+
+  - type: files
+    files:
+      - source: recipes/modules/00-system/04-plymouth
+        destination: /

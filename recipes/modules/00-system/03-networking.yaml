@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - iwd
+    remove:
+      packages:
+        - wpa_supplicant
+
+  - type: files
+    files:
+      - source: recipes/modules/00-system/03-networking
+        destination: /
+
+  - type: systemd
+    system:
+      masked:
+        - NetworkManager-wait-online.service
+        - avahi-daemon.service
+        - avahi-daemon.socket
