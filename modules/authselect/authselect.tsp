@@ -12,22 +12,8 @@ model AuthSelectV1 {
 	type: "authselect" | "authselect@v1" | "authselect@latest";
 
 	/** Configuration of authselect preset */
-	preset: "local" | "nis" | "sssd" | "winbind";
+	preset: "local" | "nis" | "sssd" | "winbind" | string;
 
-	/** Configuration of authselect features to enable (without the "with-" prefix) */
-	features?: PresetFeatures;
-}
-
-model PresetFeatures {
-	/** Features for Local Preset */
-	local?: Array<string>;
-
-	/** Features for NIS Preset */
-	nis?: Array<string>;
-
-	/** Features for SSSD Preset */
-	sssd?: Array<string>;
-
-	/** Features for Winbind Preset */
-	winbind?: Array<string>;
+	/** Configuration of authselect features to enable */
+	features?: Array<string>;
 }

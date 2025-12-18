@@ -1,0 +1,8 @@
+name: authselect
+shortdesc: The `authselect` module can be used to enable/disable PAM authentication presets.
+example: |
+  type: authselect
+  preset: local
+  features:
+    - with-mkhomedir
+    - with-fingerprint
