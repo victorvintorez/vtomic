@@ -3,4 +3,5 @@ modules:
   - type: dnf
     install:
       packages:
-        - brightnessctl
+        - playerctl
+        - alsa-utils

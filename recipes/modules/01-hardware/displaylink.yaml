@@ -3,4 +3,10 @@ modules:
   - type: dnf
     install:
       packages:
-        - brightnessctl
+        - kmod-evdi
+        - displaylink
+
+  - type: systemd
+    system:
+      enable:
+        - displaylink.service

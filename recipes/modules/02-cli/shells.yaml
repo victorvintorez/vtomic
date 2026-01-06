@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - fish
+        - nu
+
+  - type: files
+    files:
+      - source: recipes/modules/02-cli/shells
+        destination: /
+
+  - type: script
+    snippets:
+      - "sed -i 's|SHELL=/bin/bash|SHELL=/usr/bin/nu"

@@ -3,4 +3,9 @@ modules:
   - type: dnf
     install:
       packages:
-        - brightnessctl
+        - btop
+
+  - type: files
+    files:
+      - source: recipes/modules/02-cli/btop
+        destination: /

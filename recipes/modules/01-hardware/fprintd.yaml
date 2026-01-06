@@ -1,1 +1,12 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - fprintd
+
+  - type: authselect
+    source: local
+    preset: local
+    features:
+      - with-fingerprint

@@ -3,4 +3,10 @@ modules:
   - type: dnf
     install:
       packages:
-        - brightnessctl
+        - libfido2
+
+  - type: authselect
+    source: local
+    preset: local
+    features:
+      - with-pam-u2f-2fa

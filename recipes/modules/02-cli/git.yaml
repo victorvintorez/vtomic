@@ -1,6 +1,11 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 modules:
   - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - dejan/lazygit
     install:
       packages:
-        - brightnessctl
+        - git
+        - lazygit

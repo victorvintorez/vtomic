@@ -8,7 +8,7 @@ def main [config: string]: nothing -> nothing {
 	let preset = $config | get preset
 	let features = $config | get features
 
-	if ($preset != null || $preset | is-empty) {
+	if ($preset != null or $preset | is-empty) {
 		print $"(ansi red_bold)CONFIGURATION ERROR(ansi reset)"
 		print $"(ansi yellow_reverse)HINT(ansi reset): (ansi default_italic)preset(ansi reset) cannot be empty!"
 		exit 1
@@ -41,7 +41,7 @@ def main [config: string]: nothing -> nothing {
 			}
 		}
 	} else {
-		authselect select $profile ($features | reduce { |feat str|  $str + $"(feat) " })
+		authselect select $preset ($features | reduce { |feat str|  $str + $"(feat) " })
 	}
 	exit 0
 }

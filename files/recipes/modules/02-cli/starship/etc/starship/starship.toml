@@ -1,0 +1,362 @@
+format = """
+generator
+            [$os]─[$username$hostname]─[$container$directory]
+            ├─[$direnv]─[$git_branch$git_metrics]─[$bun$dart$deno$dotnet$golang$nodejs$rust]─[$nix_shell]
+            └─[$character]─$sudo>
+"""
+right_format = "$cmd_duration"
+
+[profiles]
+transient = """
+[$os]─[$username$hostname]─[$container$directory]
+└─[$character]─$sudo>
+"""
+
+# --- Modules ---
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[battery]
+disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = " "
+style = "bold white"
+
+[c]
+disabled = true
+
+[cpp]
+disabled = true
+
+[character]
+success_symbol = "[󰄬](bold green)"
+error_symbol = "[󰅖](bold red)"
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[cmd_duration]
+min_time = 100
+show_milliseconds = true
+format = "[$duration]($style)"
+
+[conda]
+disabled = true
+
+[container]
+symbol = "󱡎 "
+style = "blue dimmed"
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = " "
+style = "bold blue"
+
+[deno]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = " "
+style = "bold white"
+
+[directory]
+truncation_length = 2
+read_only = "󰌾 "
+truncation_symbol = "../"
+home_symbol = " "
+
+[directory.substitutes]
+"/nix" = " "
+"~/.config" = " "
+"~/.local/share" = " "
+"~/Desktop" = " "
+"~/Documents" = "󱔘 "
+"~/Downloads" = " "
+"~/Music" = " "
+"~/Pictures" = " "
+"~/Public" = " "
+"~/Templates" = " "
+"~/Videos" = " "
+"~/mount" = " "
+
+[direnv]
+format = "[$symbol ]($style)"
+symbol = "󱧼 "
+disabled = false
+
+[docker_context]
+disabled = true
+
+[dotnet]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = "󰪮 "
+style = "bold purple"
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fill]
+disabled = true
+
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+ignore_branches = ["master", "main"]
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+format = "([󱪝 $added]($added_style) )([󱪛 $deleted]($deleted_style) )"
+disabled = false
+ignore_submodules = true
+
+[git_status]
+ignore_submodules = true
+
+[gleam]
+disabled = true
+
+[golang]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = "󰟓 "
+style = "bold cyan"
+
+[guix_shell]
+disabled = true
+
+[gradle]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+format = "[@$hostname ]($style)"
+ssh_only = true
+
+[java]
+disabled = true
+
+[jobs]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[localip]
+disabled = true
+
+[lua]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[meson]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[mise]
+disabled = true
+
+[mojo]
+disabled = true
+
+[nats]
+disabled = true
+
+[netns]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+format = "in [$symbol$name]($style) "
+symbol = " "
+heuristic = true
+
+[nodejs]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = "󰎙 "
+style = "bold green"
+
+[ocaml]
+disabled = true
+
+[odin]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[os]
+disabled = false
+style = "bold cyan"
+
+[os.symbols]
+NixOS = " "
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pixi]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+
+[quarto]
+disabled = true
+
+[rlang]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+format = "[w/ $symbol($version )]($style)"
+version_format = "v${major}.${minor}"
+symbol = " "
+style = "bold orange"
+
+[scala]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+format = "[!]($style) "
+style = "bold red"
+disabled = false
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true
+
+[typst]
+disabled = true
+
+[username]
+format = "[$user]($style) "
+style_user = "bold white"
+show_always = true
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true
