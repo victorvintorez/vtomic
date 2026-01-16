@@ -1,1 +1,11 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      packages:
+        - imv
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/niri/images
+        destination: /

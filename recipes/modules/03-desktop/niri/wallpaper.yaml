@@ -1,1 +1,15 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      files:
+        - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+    install:
+      packages:
+        - swww
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/niri/wallpaper
+        destination: /

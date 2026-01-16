@@ -1,0 +1,14 @@
+[KDE]
+LookAndFeelPackage = com.github.vinceliuice.Orchis-Dark
+widgetStyle = kvantum
+
+[General]
+font = Iosevka Aile,14,-1,5,50,0,0,0,0,0
+menuFont = Iosevka Aile,14,-1,5,50,0,0,0,0,0
+toolBarFont = Iosevka Aile,14,-1,5,50,0,0,0,0,0
+smallFont = Iosevka Aile,10,-1,5,50,0,0,0,0,0
+smallestReadableFont = Iosevka Aile,8,-1,5,50,0,0,0,0,0
+fixed = Iosevka,14,-1,5,50,0,0,0,0,0
+
+[Icons]
+Theme = Papirus-Dark

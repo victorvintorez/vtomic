@@ -1,1 +1,33 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - arciel/packages
+        - hazel-bunny/ricing
+    install:
+      packages:
+        - phinger-cursors # TODO: write phinger-cursors spec to replace arciel/packages
+        - orchis-gtk-theme
+        - qt5ct
+        - qt6ct
+        - kvantum
+        - kvantum-qt5
+        - orchis-kde
+        - orchis-kde-decorations
+        - orchis-kde-kvantum
+        - papirus-icon-theme
+
+  - type: gschema-overrides
+    include:
+      - zz1-theme.gschema.override
+
+  - type: script
+    scripts:
+      - 03-desktop/common/theme/libadwaita-compat.nu
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/common/theme
+        destination: /

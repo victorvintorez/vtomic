@@ -1,0 +1,30 @@
+[options]
+suppress_default_binds = true
+
+[binds]
+q = quit
+f = fullscreen
+c = center
+r = reset
+
+<Shift+Left> = prev
+<bracketleft> = prev
+<Shift+Right> = next
+<bracketright> = next
+
+<Up> = pan 0 50
+<Down> = pan 0 -50
+<Left> = pan 50 0
+<Right> = pan -50 0
+
+<plus> = zoom 1
+<Shift+plus> = zoom 1
+<minus> = zoom -1
+
+r = rotate by 90
+<Ctrl+r> = rotate by -90
+
+<space> = toggle_playing
+
+e = exec setsid thunar "$(dirname $imv_current_file)" &
+<Ctrl+c> = exec wl-copy < $imv_current_file

@@ -1,1 +1,15 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      files:
+        - https://repo.librewolf.net/librewolf.repo
+    install:
+      packages:
+        - librewolf
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/common/browser
+        destination: /

@@ -1,1 +1,12 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# TODO: find/make notif daemon that reads config from /etc/
+modules:
+  - type: dnf
+    install:
+      packages:
+        - mako
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/niri/notifs
+        destination: /

@@ -16,32 +16,37 @@ def main [config: string]: nothing -> nothing {
 
 	let preset_list = authselect list
 
-	if (not(preset_list | str contains $preset)) {
+	if $preset_list !~ $preset {
 		print $"(ansi red_bold)CONFIGURATION ERROR(ansi reset)"
-		print $"(ansi yellow_reverse)HINT(ansi reset): (ansi default_italic)(preset)(ansi reset) is not in the list of available presets!"
-		print $"Available Presets: (preset_list)"
+		print $"(ansi yellow_reverse)HINT(ansi reset): (ansi default_italic)($preset)(ansi reset) is not in the list of available presets!"
+		print $"Available Presets: ($preset_list)"
 		exit 1
 	}
 
 	let features_list = authselect list-features $preset
 
 	for feature in $features {
-		if (not(features_list | str contains $feature)) {
+		if $features_list !~ $feature {
 			print $"(ansi red_bold)CONFIGURATION ERROR(ansi reset)"
-			print $"(ansi yellow_reverse)HINT(ansi reset): (ansi default_italic)(feature)(ansi reset) is not in the list of available features!"
-			print $"Available Features: (features_list)"
+			print $"(ansi yellow_reverse)HINT(ansi reset): (ansi default_italic)($feature)(ansi reset) is not in the list of available features!"
+			print $"Available Features: ($features_list)"
 			exit 1
 		}
 	}
 
 	if (authselect current | str contains $preset) {
+		print $"(ansi green)Preset ($preset) already enabled!(ansi reset)"
 		for feature in $features {
-			if (not(authselect is-feature-enabled $feature)) {
+			if (do { authselect is-feature-enabled with-mdns4 } | complete).exit_code != 0 {
 				authselect enable-feature $feature
+				print $"(ansi green)Enabled Feature ($feature)!(ansi reset)"
+			} else {
+				print $"(ansi green)Feature ($feature) already enabled!(ansi reset)"
 			}
 		}
 	} else {
 		authselect select $preset ($features | reduce { |feat str|  $str + $"(feat) " })
+		print $"(ansi green)Enabled Preset ($preset) with features: ($features)!(ansi reset)"
 	}
 	exit 0
 }

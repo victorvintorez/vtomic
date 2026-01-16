@@ -1,1 +1,27 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      install-weak-deps: false
+      packages:
+        - plasma-desktop
+        - plasma-workspace-wayland
+        - plasma-nm
+        - plasma-pa
+        - powerdevil
+        - kscreen
+        - polkit-kde
+        - bluedevil
+        - plasma-breeze
+        - breeze-icon-theme
+        - flatpak-kcm
+        - kde-settings-pulseaudio
+        - kdnssd
+        - kf6-baloo-file
+        - libappindicator-gtk3
+        - pam-kwallet
+        - plasma-print-manager
+        - plasma
+        - spectacle
+        - phonon-qt6-backend-vlc
+        - xdg-desktop-portal-kde

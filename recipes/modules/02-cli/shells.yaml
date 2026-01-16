@@ -13,4 +13,4 @@ modules:
 
   - type: script
     snippets:
-      - "sed -i 's|SHELL=/bin/bash|SHELL=/usr/bin/nu"
+      - "sed -i 's|^SHELL=.*|SHELL=/usr/bin/fish|' /etc/default/useradd"

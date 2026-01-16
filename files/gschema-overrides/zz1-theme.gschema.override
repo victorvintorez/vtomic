@@ -1,0 +1,8 @@
+[org.gnome.desktop.interface]
+color-scheme = 'prefer-dark'
+gtk-theme = 'Orchis-Dark'
+icon-theme = 'Papirus-Dark'
+font-name = 'Iosevka Aile 14'
+gtk-enable-primary-paste = false
+cursor-theme = 'phinger-cursors-dark'
+cursor-size = 28

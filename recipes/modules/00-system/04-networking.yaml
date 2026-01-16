@@ -4,13 +4,14 @@ modules:
     install:
       packages:
         - iwd
+        - ethtool
     remove:
       packages:
         - wpa_supplicant
 
   - type: files
     files:
-      - source: recipes/modules/00-system/03-networking
+      - source: recipes/modules/00-system/04-networking
         destination: /
 
   - type: systemd

@@ -1,1 +1,22 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      copr:
+        - binarypie/hypercube
+    install:
+      packages:
+        - cage
+        - greetd
+        - regreet
+
+  - type: systemd
+    system:
+      enabled:
+        - greetd.service
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/common/displaymanager
+        destination: /

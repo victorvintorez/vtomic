@@ -1,1 +1,15 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    repos:
+      cleanup: true
+      #copr:
+      #- victorvintorez/vtomic
+    #install:
+    #packages:
+    #- ironbar
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/niri/bar
+        destination: /

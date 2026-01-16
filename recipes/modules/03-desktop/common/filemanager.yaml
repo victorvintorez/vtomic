@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: dnf
+    install:
+      install-weak-deps: false
+      packages:
+        - dolphin
+        - ffmpegthumbs
+        - kdegraphics-thumbnailers
+        - kdenetwork-filesharing
+        - ark

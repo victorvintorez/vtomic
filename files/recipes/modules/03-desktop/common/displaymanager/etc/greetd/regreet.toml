@@ -1,0 +1,16 @@
+[GTK]
+application_prefer_dark_theme = true
+cursor_theme_name = "phinger-cursors-dark"
+font_name = "Iosevka Aile"
+icon_theme_name = "Papirus-Dark"
+theme_name = "Materia-dark"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]
+
+[appearance]
+greeting_msg = "vtomic"
+
+[widget.clock]
+format = "%A, %d %B %Y"

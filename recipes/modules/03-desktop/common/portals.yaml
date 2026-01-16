@@ -1,0 +1,14 @@
+modules:
+  - type: dnf
+    install:
+      packages:
+        - xdg-desktop-portal-kde
+        - xdg-desktop-portal-gnome
+        - xdg-desktop-portal-gtk
+        - kwallet
+        - gnome-keyring
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/common/portals
+        destination: /

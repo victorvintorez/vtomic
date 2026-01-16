@@ -7,34 +7,64 @@ base-image: ghcr.io/ublue-os/base-main
 image-version: 43
 
 modules:
+  # System Setup
+  - from-file: modules/00-system/00-cleanup.yaml
+  - from-file: modules/00-system/01-repos.yaml
+  - from-file: modules/00-system/02-akmods.yaml
+  - from-file: modules/00-system/03-pam.yaml
+  - from-file: modules/00-system/04-networking.yaml
+  - from-file: modules/00-system/05-plymouth.yaml
+  - from-file: modules/00-system/06-fonts.yaml
+  - from-file: modules/00-system/07-osrelease.yaml
+  - from-file: modules/00-system/08-xdgdirs.yaml
+  - from-file: modules/00-system/09-files.yaml
+
+  # Hardware Setup
+  - from-file: modules/01-hardware/brightness.yaml
+  - from-file: modules/01-hardware/fprintd.yaml
+  - from-file: modules/01-hardware/ipu6.yaml
+  - from-file: modules/01-hardware/keyboard.yaml
+  - from-file: modules/01-hardware/printing.yaml
+  - from-file: modules/01-hardware/yubikey.yaml
+
+  # CLI Setup
+  - from-file: modules/02-cli/bluetooth.yaml
+  - from-file: modules/02-cli/btop.yaml
+  - from-file: modules/02-cli/filemanager.yaml
+  - from-file: modules/02-cli/git.yaml
+  - from-file: modules/02-cli/misc.yaml
+  - from-file: modules/02-cli/neovim.yaml
+  - from-file: modules/02-cli/pipewire.yaml
+  - from-file: modules/02-cli/shells.yaml
+  - from-file: modules/02-cli/starship.yaml
+  - from-file: modules/02-cli/sudo-rs.yaml
+  - from-file: modules/02-cli/uutils.yaml
+
+  # Desktop Setup (common modules)
+  - from-file: modules/03-desktop/common/browser.yaml
+  - from-file: modules/03-desktop/common/displaymanager.yaml
+  - from-file: modules/03-desktop/common/editor.yaml
+  - from-file: modules/03-desktop/common/filemanager.yaml
+  - from-file: modules/03-desktop/common/portals.yaml
+  - from-file: modules/03-desktop/common/terminal.yaml
+  - from-file: modules/03-desktop/common/theme.yaml
+  - from-file: modules/03-desktop/common/wayland.yaml
+
+  # Desktop Setup (niri modules)
+  - from-file: modules/03-desktop/niri/bar.yaml
+  - from-file: modules/03-desktop/niri/core.yaml
+  - from-file: modules/03-desktop/niri/images.yaml
+  - from-file: modules/03-desktop/niri/launcher.yaml
+  - from-file: modules/03-desktop/niri/locker.yaml
+  - from-file: modules/03-desktop/niri/notifs.yaml
+  - from-file: modules/03-desktop/niri/polkit.yaml
+  - from-file: modules/03-desktop/niri/videos.yaml
+  - from-file: modules/03-desktop/niri/wallpaper.yaml
+
+  # Final Setup
   - type: files
     files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+      - source: recipes/wormhole
+        destination: /
 
-  - type: dnf
-    repos:
-      copr:
-        - atim/starship
-    install:
-      packages:
-        - micro
-        - starship
-    remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
