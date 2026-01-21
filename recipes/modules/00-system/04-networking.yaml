@@ -3,6 +3,9 @@ modules:
   - type: dnf
     install:
       packages:
+        - NetworkManager-wifi
+        - NetworkManager-bluetooth
+        - NetworkManager-openvpn
         - iwd
         - ethtool
     remove:
