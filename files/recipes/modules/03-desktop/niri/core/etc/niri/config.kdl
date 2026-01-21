@@ -1,9 +1,9 @@
 prefer-no-csd
 screenshot-path "~/pictures/screenshots/%Y-%m-%d_%H-%M-%S.png"
 
-clipboard { disable-primary }
-overview { zoom 0.75 }
-hotkey-overlay { skip-at-startup }
+clipboard { disable-primary; }
+overview { zoom 0.75; }
+hotkey-overlay { skip-at-startup; }
 
 cursor {
 	xcursor-theme "phinger-cursors-dark"
