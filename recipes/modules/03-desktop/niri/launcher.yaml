@@ -8,3 +8,8 @@ modules:
     install:
       packages:
         - vicinae
+
+  - type: files
+    files:
+      - source: recipes/modules/03-desktop/niri/launcher
+        destination: /
