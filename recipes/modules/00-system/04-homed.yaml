@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: authselect
+    source: local
+    preset: local
+    features:
+      - with-systemd-homed
+
+  - type: systemd
+    system:
+      enabled:
+        - systemd-homed.service

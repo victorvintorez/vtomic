@@ -14,7 +14,7 @@ modules:
 
   - type: files
     files:
-      - source: recipes/modules/00-system/04-networking
+      - source: recipes/modules/00-system/05-networking
         destination: /
 
   - type: systemd

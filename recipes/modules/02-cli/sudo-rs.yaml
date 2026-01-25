@@ -4,3 +4,8 @@ modules:
     install:
       packages:
         - sudo-rs
+
+  - type: files
+    files:
+      - source: recipes/modules/02-cli/sudo-rs
+        destination: /

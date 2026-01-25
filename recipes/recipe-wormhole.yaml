@@ -12,12 +12,13 @@ modules:
   - from-file: modules/00-system/01-repos.yaml
   - from-file: modules/00-system/02-akmods.yaml
   - from-file: modules/00-system/03-pam.yaml
-  - from-file: modules/00-system/04-networking.yaml
-  - from-file: modules/00-system/05-plymouth.yaml
-  - from-file: modules/00-system/06-fonts.yaml
-  - from-file: modules/00-system/07-osrelease.yaml
-  - from-file: modules/00-system/08-xdgdirs.yaml
-  - from-file: modules/00-system/09-files.yaml
+  - from-file: modules/00-system/04-homed.yaml
+  - from-file: modules/00-system/05-networking.yaml
+  - from-file: modules/00-system/06-plymouth.yaml
+  - from-file: modules/00-system/07-fonts.yaml
+  - from-file: modules/00-system/08-osrelease.yaml
+  - from-file: modules/00-system/09-xdgdirs.yaml
+  - from-file: modules/00-system/10-files.yaml
 
   # Hardware Setup
   - from-file: modules/01-hardware/brightness.yaml

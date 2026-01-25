@@ -4,3 +4,12 @@ modules:
     install:
       packages:
         - uutils-coreutils
+
+  - type: script
+    scripts:
+      - 02-cli/uutils/generate-nu-aliases.nu
+
+  - type: files
+    files:
+      - source: recipes/modules/02-cli/uutils
+        destination: /

@@ -5,4 +5,5 @@ modules:
       install-weak-deps: false
       packages:
         - plasma-discover
+        - plasma-discover-flatpak
         - plasma-discover-notifier
