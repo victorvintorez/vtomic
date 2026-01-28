@@ -1,18 +1,20 @@
 #!/usr/bin/env nu
 
-let header = [
-	"# Auto-generated aliases for uutils-coreutils",
-	($"# Generated at build time on (date now)"),
-	""
-]
-
-let aliases = (ls /usr/bin/uu-* | each { |bin|
-	let tool_name = ($bin.name | path basename | str replace "uu-" "")
-
-	[
-		($"export alias og-($tool_name) = ^($tool_name)"),
-		($"export alias ($tool_name) = ($bin.name | path basename)")
+def main [] {
+	let header = [
+		"# Auto-generated aliases for uutils-coreutils",
+		($"# Generated at build time on (date now)"),
+		""
 	]
-} | flatten)
 
-$header | append $aliases | str join (char newline) | save -f /etc/nushell/autoload/uutils.nu
+	let aliases = (ls /usr/bin/uu-* | each { |bin|
+			let tool_name = ($bin.name | path basename | str replace "uu-" "")
+
+			[
+				($"export alias og-($tool_name) = ^($tool_name)"),
+				($"export alias ($tool_name) = ($bin.name | path basename)")
+			]
+	} | flatten)
+
+	$header | append $aliases | str join (char newline) | save -f /etc/nushell/autoload/uutils.nu
+}

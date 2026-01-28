@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+modules:
+  - type: files
+    files:
+      - source: recipes/modules/00-system/11-firstboot
+        destination: /
+
+  - type: script
+    snippets:
+      - "chmod +x /usr/local/bin/remove-setup-user.nu"

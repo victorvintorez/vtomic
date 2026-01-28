@@ -8,5 +8,5 @@ modules:
 
   - type: files
     files:
-      - source: recipes/modules/00-system/09-xdgdirs
+      - source: recipes/modules/00-system/10-xdgdirs
         destination: /

@@ -10,3 +10,16 @@ modules:
     system:
       enabled:
         - systemd-homed.service
+
+  - type: files
+    files:
+      - source: recipes/modules/00-system/05-homed
+        destination: /
+
+  - type: script
+    snippets:
+      - "chmod +x /usr/local/bin/setup-homed-user.nu"
+
+  - type: justfiles
+    include:
+      - modules/00-system/05-homed

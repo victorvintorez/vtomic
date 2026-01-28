@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: vtomic-supernova
-description: This is a vtomic OS image for the machine with hostname "supernova".
+description: vtomic image for "supernova"
 
 base-image: ghcr.io/ublue-os/base-main
 image-version: 43

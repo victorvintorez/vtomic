@@ -23,5 +23,5 @@ modules:
 
   - type: files
     files:
-      - source: recipes/modules/00-system/07-fonts
+      - source: recipes/modules/00-system/08-fonts
         destination: /

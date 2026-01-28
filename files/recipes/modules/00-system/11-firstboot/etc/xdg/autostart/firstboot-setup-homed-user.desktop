@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name = Vtomic User Setup
+Comment = Setup your permanent user account
+Exec = kitty -- /usr/local/bin/setup-homed-user --firstboot
+Type = Application
+Terminal = false
+Categories = Utility;System;

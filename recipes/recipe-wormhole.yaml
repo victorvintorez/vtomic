@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: vtomic-wormhole
-description: This is a vtomic OS image for the machine with hostname "wormhole".
+description: vtomic image for "wormhole"
 
 base-image: ghcr.io/ublue-os/base-main
 image-version: 43
@@ -10,15 +10,17 @@ modules:
   # System Setup
   - from-file: modules/00-system/00-cleanup.yaml
   - from-file: modules/00-system/01-repos.yaml
-  - from-file: modules/00-system/02-akmods.yaml
-  - from-file: modules/00-system/03-pam.yaml
-  - from-file: modules/00-system/04-homed.yaml
-  - from-file: modules/00-system/05-networking.yaml
-  - from-file: modules/00-system/06-plymouth.yaml
-  - from-file: modules/00-system/07-fonts.yaml
-  - from-file: modules/00-system/08-osrelease.yaml
-  - from-file: modules/00-system/09-xdgdirs.yaml
-  - from-file: modules/00-system/10-files.yaml
+  - from-file: modules/00-system/02-bootloader.yaml
+  - from-file: modules/00-system/03-akmods.yaml
+  - from-file: modules/00-system/04-pam.yaml
+  - from-file: modules/00-system/05-homed.yaml
+  - from-file: modules/00-system/06-networking.yaml
+  - from-file: modules/00-system/07-plymouth.yaml
+  - from-file: modules/00-system/08-fonts.yaml
+  - from-file: modules/00-system/09-osrelease.yaml
+  - from-file: modules/00-system/10-xdgdirs.yaml
+  - from-file: modules/00-system/11-firstboot.yaml
+  - from-file: modules/00-system/12-files.yaml
 
   # Hardware Setup
   - from-file: modules/01-hardware/brightness.yaml
@@ -65,7 +67,7 @@ modules:
   # Final Setup
   - type: files
     files:
-      - source: recipes/wormhole
+      - source: recipes/recipe-wormhole
         destination: /
 
   - type: signing
