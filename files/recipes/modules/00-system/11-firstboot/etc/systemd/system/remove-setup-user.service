@@ -1,0 +1,10 @@
+[Unit]
+Description = remove setup user
+
+[Service]
+Type = oneshot
+ExecStart = /usr/local/bin/remove-setup-user.nu
+RemainAfterExit = yes
+
+[Install]
+WantedBy = multi-user.target

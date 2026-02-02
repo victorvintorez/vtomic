@@ -1,28 +1,14 @@
 #!/usr/bin/env nu
 
 def main [
-	--firstboot
 	--dry-run
 ] {
-	if ($firstboot) == false {
-		print (gum style
-			--border normal
-			--margin "1"
-			--padding "1 2"
-			--border-foreground 212
-			"vtomic user setup")
-	} else {
-		print (gum style
-			--border normal
-			--margin "1"
-			--padding "1 2"
-			--border-foreground 212
-			--
-			"vtomic installer"
-			"------"
-			"you are in the temporary `setup` account"
-			"you will now be guided through creating your user account")
-	}
+	print (gum style
+		--border normal
+		--margin "1"
+		--padding "1 2"
+		--border-foreground 212
+		"vtomic user setup")
 
 	if (whoami) != "root" {
 		print (gum style
@@ -204,26 +190,12 @@ def main [
 		}
 	}
 
-	if ($firstboot) == false {
-		print (gum style
-			--border normal
-			--margin "1"
-			--padding "1 2"
-			--border-foreground 46
-			"user created successfully!")
-	} else {
-		print (gum style
-			--border normal
-			--margin "1"
-			--padding "1 2"
-			--border-foreground 46
-			--
-			"user created successfully!"
-			"------"
-			"1. log out of the temporary `setup` account"
-			$"2. log into your user account: ($username)"
-			"3. run `remove-setup-user.nu` to remove the temporary account")
-	}
+	print (gum style
+		--border normal
+		--margin "1"
+		--padding "1 2"
+		--border-foreground 46
+		"user created successfully!")
 }
 
 def get_disks [] {

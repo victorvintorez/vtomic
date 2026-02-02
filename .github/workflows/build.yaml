@@ -26,6 +26,7 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
+          - recipe-installer.yaml
           - recipe-supernova.yaml
           - recipe-wormhole.yaml
     steps:
