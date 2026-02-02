@@ -14,10 +14,12 @@ def main [
 		--padding "1 2"
 		--border-foreground 212
 		--
-		"vtomic installer"
+		$"($GH_REPO) installer"
 		"------"
 		"you are currently using the installer image"
-		"you will now be guided through picking a specific vtomic image")
+		"you will now be guided through:"
+	    "1. setting up your user account"
+	    $"2. choosing a ($GH_REPO) image")
 
 	if (whoami) != "root" {
 		print (gum style
@@ -93,10 +95,13 @@ def main [
 			exit 0
 		}
 
+	update_signing_policy
+
 	if $dry_run == false {
 		try {
 			(bootc switch
-				$"ostree-image-signed:docker://ghcr.io/($GH_USER)/($selected_image)")
+			    --enforce-container-sigpolicy
+				$"ghcr.io/($GH_USER)/($selected_image)")
 		} catch {
 			print (gum style
 				--foreground 196
@@ -111,7 +116,8 @@ def main [
 			--
 			"```"
 			"bootc switch \\"
-			$"	ostree-image-signed:docker://ghcr.io/($GH_USER)/($selected_image)"
+			"   --enforce-container-sigpolicy"
+			$"	ghcr.io/($GH_USER)/($selected_image)"
 			"```")
 	}
 
@@ -226,4 +232,38 @@ def fetch_images [] {
 		})
 
 	return $images
+}
+
+def update_signing_policy [] {
+    if ("etc/pki/containers" | path type) == "dir" {
+        mkdir "/etc/pki/containers"
+    }
+
+    try {
+        (http get $"https://raw.githubusercontent.com/($GH_USER)/($GH_REPO)/($GH_BRANCH)/cosign.pub"
+            | save -f $"/etc/pki/containers/($GH_REPO).pub")
+    } catch {
+    	print (gum style
+			--foreground 196
+			"oh no! couldn't connect to github! you can restart by running `vtomic-installer.nu`")
+		exit 0
+    }
+
+    (open "/etc/containers/policy.json"
+        | upsert transports { |transports_obj|
+            let current_transports = ($transports_obj.transports? | default {})
+
+            $current_transports | upsert docker { |docker_obj|
+                let current_docker = ($docker_obj.docker? | default {})
+
+                $current_docker | upsert $"ghcr.io/($GH_USER)" [{
+                    type: "sigstoreSigned",
+                    keyPath: $"/etc/pki/containers/($GH_REPO).pub",
+                    signedIdentity: {
+                        type: "matchRepository"
+                    }
+                }]
+            }
+        }
+        | save -f "/etc/containers/policy.json")
 }
