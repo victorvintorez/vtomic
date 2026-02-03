@@ -50,7 +50,7 @@ modules:
   # Installer
   - type: files
     files:
-      - source: recipes/recipe-wormhole
+      - source: recipes/recipe-installer
         destination: /
 
   - type: script
