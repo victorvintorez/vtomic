@@ -7,8 +7,8 @@ def main [] {
 		""
 	]
 
-	let aliases = (ls /usr/bin/uu-* | each { |bin|
-			let tool_name = ($bin.name | path basename | str replace "uu-" "")
+	let aliases = (ls /usr/bin/uu_* | each { |bin|
+			let tool_name = ($bin.name | path basename | str replace "uu_" "")
 
 			[
 				($"export alias og-($tool_name) = ^($tool_name)"),
