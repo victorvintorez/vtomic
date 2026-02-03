@@ -7,4 +7,4 @@ modules:
 
   - type: script
     snippets:
-      - "chmod +x /usr/local/bin/remove-setup-user.nu"
+      - "chmod +x /var/usrlocal/bin/remove-setup-user.nu"

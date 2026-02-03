@@ -55,6 +55,6 @@ modules:
 
   - type: script
     snippets:
-      - "chmod +x /usr/local/bin/vtomic-installer.nu"
+      - "chmod +x /var/usrlocal/bin/vtomic-installer.nu"
 
   - type: signing
