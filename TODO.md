@@ -17,6 +17,7 @@
 - [bluetuith](https://github.com/bluetuith-org/bluetuith)
 - [dysk](https://github.com/Canop/dysk)
 - [phinger-cursors](https://github.com/phisch/phinger-cursors)
+- [regreet](https://github.com/rharish101/ReGreet)
 
 ## Scripts:
 

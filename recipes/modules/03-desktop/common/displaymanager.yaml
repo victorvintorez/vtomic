@@ -5,6 +5,7 @@ modules:
       cleanup: true
       copr:
         - binarypie/hypercube
+        - washkinazy/wayland-wm-extras
     install:
       packages:
         - cage
