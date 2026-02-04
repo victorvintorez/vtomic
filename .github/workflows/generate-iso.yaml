@@ -28,6 +28,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Generate ISO
+        id: generate
         uses: ublue-os/titanoboa@main
         with:
           image-ref: ghcr.io/${{ github.repository }}-installer:br-system-43
@@ -38,7 +39,7 @@ jobs:
       - name: Rename and Checksum ISO
         run: |
           mkdir -p output
-          mv ${{ steps.build.outputs.iso-dest }} output/installer-$(date +%Y%m%d).iso
+          mv ${{ steps.generate.outputs.iso-dest }} output/installer-$(date +%Y%m%d).iso
           (cd output && sha256sum installer-$(date +%Y%m%d).iso | tee installer-$(date +%Y%m%d).iso-CHECKSUM)
 
       - name: Upload ISO and Checksum
