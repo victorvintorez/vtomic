@@ -1,0 +1,48 @@
+name: Generate ISO
+
+on:
+  schedule:
+    - cron: "00 07 * * 0" # generate at 07:00 UTC on sundays
+  push:
+    paths-ignore: # don't rebuild if only documentation has changed
+      - "**.md"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  titanoboa:
+    name: Generate Installer ISO
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    steps:
+      - name: Maximize Build Space
+        uses: ublue-os/remove-unwanted-software@v9
+
+      - name: Checkout Repo
+        uses: actions/checkout@v6
+
+      - name: Generate ISO
+        uses: ublue-os/titanoboa@main
+        with:
+          image-ref: ghcr.io/${{ github.repository }}-installer:br-system-43
+          compression: erofs
+          hook-post-rootfs: ${{ github.workspace }}/files/installer/configure-anaconda.nu
+          kargs: "inst.ks=file:/kickstart.ks"
+
+      - name: Rename and Checksum ISO
+        run: |
+          mkdir -p output
+          mv ${{ steps.build.outputs.iso-dest }} output/installer-$(date +%Y%m%d).iso
+          (cd output && sha256sum installer-$(date +%Y%m%d).iso | tee installer-$(date +%Y%m%d).iso-CHECKSUM)
+
+      - name: Upload ISO and Checksum
+        uses: actions/upload-artifact@v4
+        with:
+          name: installer
+          path: output/

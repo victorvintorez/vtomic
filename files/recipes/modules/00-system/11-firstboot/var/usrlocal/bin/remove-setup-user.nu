@@ -6,6 +6,7 @@ def main [] {
         userdel -r setup
     } catch {
         print "firstboot: failed to remove setup user!"
+        print "firstboot: user deletion failed"
         print "firstboot: re-run with `sudo systemctl start remove-setup-user.service`"
         print "firstboot: or run `sudo userdel -r setup`"
         exit 1

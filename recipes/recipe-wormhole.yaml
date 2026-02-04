@@ -10,7 +10,7 @@ modules:
   # System Setup
   - from-file: modules/00-system/00-cleanup.yaml
   - from-file: modules/00-system/01-repos.yaml
-  - from-file: modules/00-system/02-bootloader.yaml
+  #- from-file: modules/00-system/02-bootloader.yaml
   - from-file: modules/00-system/03-akmods.yaml
   - from-file: modules/00-system/04-pam.yaml
   - from-file: modules/00-system/05-homed.yaml

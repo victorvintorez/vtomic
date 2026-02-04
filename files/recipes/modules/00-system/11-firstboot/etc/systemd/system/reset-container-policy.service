@@ -1,10 +1,10 @@
 [Unit]
-Description = remove setup user
+Description = reset container policy
 After = local-fs.target
 
 [Service]
 Type = oneshot
-ExecStart = /var/usrlocal/bin/remove-setup-user.nu
+ExecStart = /var/usrlocal/bin/reset-container-policy.nu
 RemainAfterExit = yes
 
 [Install]
