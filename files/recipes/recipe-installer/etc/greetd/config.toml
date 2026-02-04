@@ -1,0 +1,10 @@
+[terminal]
+vt = current
+
+[default_session]
+user = "liveuser"
+command = "niri-session"
+
+[initial_session]
+user = "liveuser"
+command = "niri-session"
