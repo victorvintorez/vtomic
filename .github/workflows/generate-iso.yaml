@@ -32,7 +32,7 @@ jobs:
         with:
           image-ref: ghcr.io/${{ github.repository }}-installer:br-system-43
           compression: erofs
-          hook-post-rootfs: ${{ github.workspace }}/files/installer/configure-anaconda.nu
+          hook-post-rootfs: ${{ github.workspace }}/files/installer/configure-anaconda.sh
           kargs: "inst.ks=file:/kickstart.ks"
 
       - name: Rename and Checksum ISO
