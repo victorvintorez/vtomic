@@ -56,5 +56,6 @@ modules:
   - type: script
     snippets:
       - "chmod +x /var/usrlocal/bin/vtomic-installer.nu"
+      - "mv /usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/sway-niri.desktop"
 
   - type: signing

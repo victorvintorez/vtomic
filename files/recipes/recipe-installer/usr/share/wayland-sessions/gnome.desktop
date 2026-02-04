@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name = GNOME
-Comment = NOT A REAL SESSION! JUST USED TO BYPASS TITANOBOA CHECKS
-Exec = /usr/bin/true
-Type = Application
