@@ -36,6 +36,7 @@ modules:
   - from-file: modules/02-cli/starship.yaml
 
   # Desktop Setup (common modules)
+  - from-file: modules/03-desktop/common/displaymanager.yaml
   - from-file: modules/03-desktop/common/portals.yaml
   - from-file: modules/03-desktop/common/terminal.yaml
   - from-file: modules/03-desktop/common/theme.yaml
