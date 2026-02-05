@@ -5,6 +5,7 @@
 - systemd-boot
 - custom ISO w/ titanoboa
 - nix flake updater service
+- gnome/gtk applications by default
 
 ## Modules:
 

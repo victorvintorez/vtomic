@@ -42,10 +42,14 @@ jobs:
           mv ${{ steps.generate.outputs.iso-dest }} output/installer-$(date +%Y%m%d).iso
           (cd output && sha256sum installer-$(date +%Y%m%d).iso | tee installer-$(date +%Y%m%d).iso-CHECKSUM)
 
-      - name: Upload ISO and Checksum
-        uses: actions/upload-artifact@v4
+      - name: Upload ISO
+        uses: actions/upload-artifact@v6
         with:
-          name: installer
-          path: |
-            output/installer-*.iso
-            output/installer-*.iso-CHECKSUM
+          name: installer-iso
+          path: output/installer-*.iso
+
+      - name: Upload Checksum
+        uses: actions/upload-artifact@v6
+        with:
+          name: installer-checksum
+          path: output/installer-*.iso-CHECKSUM
