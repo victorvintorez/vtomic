@@ -18,7 +18,6 @@ modules:
   - from-file: modules/00-system/08-fonts.yaml
   - from-file: modules/00-system/09-osrelease.yaml
   - from-file: modules/00-system/10-xdgdirs.yaml
-  - from-file: modules/00-system/11-firstboot.yaml
   - from-file: modules/00-system/12-files.yaml
 
   # Hardware Setup
@@ -45,6 +44,7 @@ modules:
   # Desktop Setup (niri modules)
   - from-file: modules/03-desktop/niri/bar.yaml
   - from-file: modules/03-desktop/niri/core.yaml
+  - from-file: modules/03-desktop/niri/launcher.yaml
   - from-file: modules/03-desktop/niri/polkit.yaml
   - from-file: modules/03-desktop/niri/wallpaper.yaml
 

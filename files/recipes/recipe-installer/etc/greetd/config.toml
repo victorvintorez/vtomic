@@ -3,8 +3,8 @@ vt = current
 
 [default_session]
 user = "liveuser"
-command = "niri --session"
+command = "niri-session"
 
 [initial_session]
 user = "liveuser"
-command = "niri --session"
+command = "niri-session"
