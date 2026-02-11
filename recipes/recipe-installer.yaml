@@ -48,7 +48,30 @@ modules:
   - from-file: modules/03-desktop/niri/polkit.yaml
   - from-file: modules/03-desktop/niri/wallpaper.yaml
 
-  # Installer
+  # Installer Specific Setup
+  - type: systemd
+    system:
+      disabled:
+        - rpm-ostree-countme.service
+        - bootloader-update.service
+        - rpm-ostreed-automatic.timer
+        - uupd.timer
+
+  - type: dnf
+    install:
+      packages:
+        - libblockdev-btrfs
+        - libblockdev-lvm
+        - libblockdev-dm
+        - anaconda-live
+        - anaconda-gui
+        - anaconda-install-env-deps
+
+  - type: script
+    snippets:
+      - "mv /usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/sway-niri.desktop"
+      - 'sed -i ''s/ANACONDA_PRODUCTVERSION=.*/ANACONDA_PRODUCTVERSION=""/'' /usr/{,s}bin/liveinst || true'
+
   - type: files
     files:
       - source: recipes/recipe-installer
@@ -57,6 +80,5 @@ modules:
   - type: script
     snippets:
       - "chmod +x /var/usrlocal/bin/vtomic-installer.nu"
-      - "mv /usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/sway-niri.desktop"
 
   - type: signing

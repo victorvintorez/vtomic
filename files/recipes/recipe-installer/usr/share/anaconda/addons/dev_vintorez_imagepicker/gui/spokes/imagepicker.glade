@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.22"/>
+  <object class="GtkListStore" id="imageStore">
+    <columns>
+      <column type="gchararray"/>
+      <column type="gchararray"/>
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="AnacondaSpokeWindow" id="vtomicImageWindow">
+    <property name="can_focus">False</property>
+    <property name="window_name">Vtomic Image Selection</property>
+    <child internal-child="main_box">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">12</property>
+
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Select an image from the list below to view details.</property>
+            <property name="xalign">0</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkPaned">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="position">300</property> <child>
+              <object class="GtkScrolledWindow">
+                <property name="visible">True</property>
+                <property name="min_content_height">400</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTreeView" id="imageView">
+                    <property name="visible">True</property>
+                    <property name="model">imageStore</property>
+                    <signal name="cursor-changed" handler="on_selection_changed" swapped="no"/>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection"/>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn">
+                        <property name="title">Available Images</property>
+                        <child>
+                          <object class="GtkCellRendererText"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="resize">False</property>
+                <property name="shrink">False</property>
+              </packing>
+            </child>
+
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+                <property name="margin_start">20</property>
+                <property name="spacing">10</property>
+
+                <child>
+                  <object class="GtkLabel" id="detailName">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                      <attribute name="scale" value="1.5"/>
+                    </attributes>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkLabel" id="detailUrl">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="selectable">True</property>
+                    <attributes>
+                       <attribute name="style" value="italic"/>
+                       <attribute name="foreground" value="#555555"/>
+                    </attributes>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
+
+                <child>
+                  <object class="GtkLabel" id="detailDesc">
+                    <property name="visible">True</property>
+                    <property name="xalign">0</property>
+                    <property name="yalign">0</property>
+                    <property name="wrap">True</property>
+                    <property name="max_width_chars">50</property>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="resize">True</property>
+                <property name="shrink">False</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

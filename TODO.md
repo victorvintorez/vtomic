@@ -6,6 +6,7 @@
 - custom ISO w/ titanoboa
 - nix flake updater service
 - gnome/gtk applications by default
+- systemd-networkd instead of networkmanager
 
 ## Modules:
 
