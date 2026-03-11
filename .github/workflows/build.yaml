@@ -1,4 +1,4 @@
-name: bluebuild
+name: Build Image
 
 on:
   schedule:
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  bluebuild:
+  build:
     name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:

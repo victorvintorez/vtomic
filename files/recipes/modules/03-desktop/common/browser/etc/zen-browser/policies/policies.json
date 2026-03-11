@@ -171,6 +171,10 @@
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi"
 			},
+			"7esoorv3@alefvanoon.anonaddy.me": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/file/4522826/libredirect-3.2.0.xpi"
+			},
 			"@react-devtools": {
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/react-devtools/latest.xpi"

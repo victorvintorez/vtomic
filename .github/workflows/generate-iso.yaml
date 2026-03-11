@@ -1,12 +1,11 @@
 name: Generate ISO
 
 on:
-  schedule:
-    - cron: "00 07 * * 0" # generate at 07:00 UTC on sundays
-  push:
-    paths-ignore: # don't rebuild if only documentation has changed
-      - "**.md"
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build Image"]
+    branches: ["main"]
+    types:
+      - completed
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
@@ -16,6 +15,7 @@ jobs:
   titanoboa:
     name: Generate Installer ISO
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     permissions:
       contents: read
       packages: write

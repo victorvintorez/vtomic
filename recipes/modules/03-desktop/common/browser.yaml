@@ -3,11 +3,11 @@ modules:
   - type: dnf
     repos:
       cleanup: true
-      files:
-        - https://repo.librewolf.net/librewolf.repo
+      copr:
+        - sneexy/zen-browser
     install:
       packages:
-        - librewolf
+        - zen-browser
 
   - type: files
     files:
