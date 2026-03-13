@@ -1,5 +1,34 @@
 {
 	"policies": {
+		"3rdparty": {
+			"Extensions": {
+				"uBlock0@raymondhill.net": {
+					"userSettings": {
+						"toOverwrite": {
+							"filterLists": [
+								"ublock-filters",
+								"ublock-badware",
+								"ublock-privacy",
+								"ublock-unbreak",
+								"ublock-quick-fixes",
+								"easylist",
+								"easyprivacy",
+								"adguard-spyware-url",
+								"urlhaus-1",
+								"curben-phishing",
+								"plowe-0",
+								"fanboy-cookiemonster",
+								"ublock-cookies-easylist",
+								"fanboy-social",
+								"NOR-0"
+							]
+						}
+					}
+				}
+			}
+		},
+		"AutofillAddressEnabled": false,
+		"AutofillCreditCardEnabled": false,
 		"Preferences": {
 			"privacy.resistFingerprinting": {
 				"Value": false,

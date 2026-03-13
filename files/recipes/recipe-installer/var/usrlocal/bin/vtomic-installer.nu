@@ -132,7 +132,7 @@ def main [
 		"create user?") == false {
 			print (gum style
 				--foreground 196
-			$"cancelled! you can restart by running `ujust setup-homed-user(if $firstboot {" --firstboot"})`")
+			$"cancelled! you can restart by running `ujust setup-homed-user`")
 			exit 0
 		}
 
@@ -144,7 +144,7 @@ def main [
 		$"this will wipe device ($disk_choice)! are you sure you want to continue?") == false {
 			print (gum style
 				--foreground 196
-			$"cancelled! you can restart by running `ujust setup-homed-user(if $firstboot {" --firstboot"})`")
+			$"cancelled! you can restart by running `ujust setup-homed-user`")
 			exit 0
 		}
 

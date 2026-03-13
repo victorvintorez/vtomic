@@ -27,28 +27,33 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v6
 
+      - name: Mount BTRFS for podman storage
+        id: container-storage-action
+        uses: ublue-os/container-storage-action@911baca08baf30c8654933e9e9723cb399892140
+        continue-on-error: true
+        with:
+          target-dir: /var/lib/containers
+          mount-opts: compress-force=zstd:2
+
       - name: Generate ISO
         id: generate
-        uses: ublue-os/titanoboa@main
+        uses: osbuild/bootc-image-builder-action@main
         with:
-          image-ref: ghcr.io/${{ github.repository }}-installer:br-system-43
-          compression: erofs
-          hook-post-rootfs: ${{ github.workspace }}/files/installer/configure-iso.sh
+          builder-image: ghcr.io/victorvintorez/bootc-image-builder:latest
+          config-file: ./files/installer/config.toml
+          image: ghcr.io/${{ github.repository }}-installer:br-system-43
+          types: anaconda-iso
+          rootfs: btrfs
+          additional-args: --use-librepo
 
       - name: Rename and Checksum ISO
         run: |
           mkdir -p output
-          mv ${{ steps.generate.outputs.iso-dest }} output/installer-$(date +%Y%m%d).iso
-          (cd output && sha256sum installer-$(date +%Y%m%d).iso | tee installer-$(date +%Y%m%d).iso-CHECKSUM)
+          mv ${{ steps.generate.outputs.output-directory }} output/vtomic-installer-$(date +%Y%m%d).iso
+          (cd output && sha256sum vtomic-installer-$(date +%Y%m%d).iso | tee vtomic-installer-$(date +%Y%m%d).iso-CHECKSUM)
 
       - name: Upload ISO
         uses: actions/upload-artifact@v6
         with:
           name: installer-iso
-          path: output/installer-*.iso
-
-      - name: Upload Checksum
-        uses: actions/upload-artifact@v6
-        with:
-          name: installer-checksum
-          path: output/installer-*.iso-CHECKSUM
+          path: output/vtomic-installer-*.iso
