@@ -3,7 +3,7 @@ name: Generate ISO
 on:
   workflow_run:
     workflows: ["Build Image"]
-    branches: ["main"]
+    branches: ["main", "system"]
     types:
       - completed
 
