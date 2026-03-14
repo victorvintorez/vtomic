@@ -87,6 +87,11 @@
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/addon@darkreader.org/latest.xpi",
 				"private_browsing": true
 			},
+			"{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}": {
+				"installation_mode": "normal_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}/latest.xpi",
+				"private_browsing": true
+			},
 			"@react-devtools": {
 				"installation_mode": "normal_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/@react-devtools/latest.xpi"
