@@ -6,6 +6,7 @@ on:
     branches: ["main", "system"]
     types:
       - completed
+  workflow_dispatch: # allow manually triggering builds
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
