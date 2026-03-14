@@ -50,8 +50,8 @@ jobs:
       - name: Rename and Checksum ISO
         run: |
           mkdir -p output
-          mv ${{ steps.generate.outputs.output-directory }} output/vtomic-installer-$(date +%Y%m%d).iso
-          (cd output && sha256sum vtomic-installer-$(date +%Y%m%d).iso | tee vtomic-installer-$(date +%Y%m%d).iso-CHECKSUM)
+          mv ${{ steps.generate.outputs.anaconda-iso-output-path }} output/vtomic-installer-$(date +%Y%m%d).iso
+          {{ steps.generate.outputs.anaconda-iso-output-checksum }} >> vtomic-installer-$(date +%Y%m%d).iso-CHECKSUM)
 
       - name: Upload ISO
         uses: actions/upload-artifact@v6
