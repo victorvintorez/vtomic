@@ -47,14 +47,9 @@ jobs:
           rootfs: btrfs
           additional-args: --use-librepo
 
-      - name: Rename and Checksum ISO
-        run: |
-          mkdir -p output
-          mv ${{ steps.generate.outputs.anaconda-iso-output-path }} output/vtomic-installer-$(date +%Y%m%d).iso
-          {{ steps.generate.outputs.anaconda-iso-output-checksum }} >> vtomic-installer-$(date +%Y%m%d).iso-CHECKSUM)
-
-      - name: Upload ISO
-        uses: actions/upload-artifact@v6
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: installer-iso
-          path: output/vtomic-installer-*.iso
+          name: iso
+          path: ${{ steps.build-iso.outputs.output-directory }}
+          if-no-files-found: error
