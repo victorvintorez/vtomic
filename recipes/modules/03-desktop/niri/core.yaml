@@ -2,7 +2,7 @@
 modules:
   - type: script
     snippets:
-      - 'dnf install -y niri xwayland-satellite && find /usr/share/doc/niri -name "*[^[:ascii:]]*" -delete'
+      - "dnf install -y niri xwayland-satellite && rm -rf /usr/share/doc/niri"
 
   - type: files
     files:
