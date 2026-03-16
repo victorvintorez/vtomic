@@ -2,7 +2,9 @@
 modules:
   - type: script
     snippets:
-      - "dnf install -y niri xwayland-satellite && rm -rf /usr/share/doc/niri && rm -rf /usr/share/doc/just"
+      - "dnf install -y niri xwayland-satellite"
+      - "rm -rf /usr/share/doc/niri"
+      - rm -rf /usr/share/doc/just
 
   - type: files
     files:
