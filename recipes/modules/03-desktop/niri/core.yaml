@@ -1,15 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
 modules:
-  - type: dnf
-    install:
-      install-weak-deps: false
-      packages:
-        - niri
-        - xwayland-satellite
-
   - type: script
     snippets:
-      - 'find /usr/share/doc/niri -name "*[^[:ascii:]]*" -delete'
+      - 'dnf install -y niri xwayland-satellite && find /usr/share/doc/niri -name "*[^[:ascii:]]*" -delete'
 
   - type: files
     files:
