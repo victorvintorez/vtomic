@@ -7,6 +7,10 @@ modules:
         - niri
         - xwayland-satellite
 
+  - type: script
+    snippets:
+      - 'find /usr/share/doc/niri -name "*[^[:ascii:]]*" -delete'
+
   - type: files
     files:
       - source: recipes/modules/03-desktop/niri/core

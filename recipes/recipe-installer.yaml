@@ -71,7 +71,6 @@ modules:
     snippets:
       - "mv /usr/share/wayland-sessions/niri.desktop /usr/share/wayland-sessions/sway-niri.desktop"
       - 'sed -i ''s/ANACONDA_PRODUCTVERSION=.*/ANACONDA_PRODUCTVERSION=""/'' /usr/{,s}bin/liveinst || true'
-      - "rm -rf /usr/share/doc"
 
   - type: files
     files:
