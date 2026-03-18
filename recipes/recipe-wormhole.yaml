@@ -4,7 +4,7 @@ name: vtomic-wormhole
 description: vtomic image for "wormhole"
 
 base-image: ghcr.io/ublue-os/base-main
-image-version: 44
+image-version: 43
 
 modules:
   # System Setup
