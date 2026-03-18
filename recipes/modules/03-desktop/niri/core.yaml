@@ -6,6 +6,11 @@ modules:
         - niri
         - xwayland-satellite
 
+  - type: script
+    snippets:
+      - "rm -rf /usr/share/doc/niri"
+      - "rm -rf /usr/share/doc/just"
+
   - type: files
     files:
       - source: recipes/modules/03-desktop/niri/core
