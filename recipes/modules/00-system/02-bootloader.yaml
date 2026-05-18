@@ -5,6 +5,7 @@ modules:
       packages:
         - grubby
         - grub2
+        - bootupd
 
   - type: dnf
     install:
