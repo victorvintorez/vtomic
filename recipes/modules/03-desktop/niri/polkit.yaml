@@ -5,7 +5,7 @@ modules:
     repos:
       cleanup: true
       copr:
-        - lbarrys/LBsWorld
+        - lbarrys/LBsWorld44
     install:
       packages:
         - soteria
