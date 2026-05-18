@@ -4,7 +4,6 @@ modules:
     repos:
       cleanup: true
       copr:
-        - binarypie/hypercube
         - washkinazy/wayland-wm-extras
     install:
       packages:
