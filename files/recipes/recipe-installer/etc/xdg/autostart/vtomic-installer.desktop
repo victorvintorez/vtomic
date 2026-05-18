@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name = vtomic installer
-Comment = select your vtomic image
-Exec = kitty -- sudo /usr/local/bin/vtomic-installer.nu
-Type = Application
-Terminal = false
-Categories = System;

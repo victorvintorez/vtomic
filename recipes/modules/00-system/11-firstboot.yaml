@@ -7,13 +7,11 @@ modules:
 
   - type: script
     snippets:
-      - "chmod +x /var/usrlocal/bin/remove-setup-user.nu"
       - "chmod +x /var/usrlocal/bin/reset-container-policy.nu"
       - "chmod +x /var/usrlocal/bin/set-default-hostname.nu"
 
   - type: systemd
     system:
       enabled:
-        - remove-setup-user.service
         - reset-container-policy.service
         - set-default-hostname.service
